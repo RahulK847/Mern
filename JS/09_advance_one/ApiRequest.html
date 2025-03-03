@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User Profile</title>
+    <style>
+        /* Reset styles and set global font */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        /* Style for body to center content */
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* User card container styles */
+        .user-card {
+            background: #2d2d2d;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover effect on user card */
+        .user-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Container for user image */
+        .image-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        /* Style for user image */
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #4a90e2;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Placeholder text when image is loading */
+        .image-container::before {
+            content: "Loading...";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #888;
+            font-size: 0.9rem;
+            z-index: -1;
+        }
+
+        /* Hide empty images */
+        img[src=""],
+        img:not([src]) {
+            opacity: 0;
+        }
+
+        /* User info container styles */
+        .user-info {
+            background: #363636;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+        }
+
+        /* Style for user info text */
+        #demo {
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Highlight strong text */
+        #demo strong {
+            color: #4a90e2;
+            font-weight: 600;
+        }
+
+        /* Responsive design for small screens */
+        @media (max-width: 480px) {
+            .user-card {
+                padding: 1.5rem;
+            }
+            
+            .image-container {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        /* Loading animation spinner */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4a90e2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-card">
+        <div class="image-container">
+            <!-- Placeholder for user image -->
+            <img src="" alt="User avatar">
+        </div>
+        <div class="user-info">
+            <!-- Placeholder for user info text -->
+            <p id="demo">Loading...</p>
+        </div>
+    </div>
+
+    <script>
+        // API endpoint to fetch random user data
+        const urlRequest = "https://randomuser.me/api/";
+        const xhttp = new XMLHttpRequest();
+
+        // Open GET request to fetch data asynchronously
+        xhttp.open("GET", urlRequest, true);
+
+        xhttp.onreadystatechange = function () {
+            // Check if request is completed
+            if (xhttp.readyState == 4) {
+                // Check if response is successful
+                if (xhttp.status == 200) {
+                    // Parse JSON response
+                    const data = JSON.parse(xhttp.responseText);
+                    const user = data.results[0];
+                    
+                    // Update image source and alt text
+                    const img = document.querySelector("img");
+                    img.src = user.picture.large;
+                    img.alt = `${user.name.first}'s profile picture`;
+                    
+                    // Update user details dynamically
+                    document.getElementById("demo").innerHTML = `
+                        <strong>Name:</strong> ${user.name.title} ${user.name.first} ${user.name.last} <br>
+                        <strong>Gender:</strong> ${user.gender} <br>
+                        <strong>Country:</strong> ${user.location.country} <br>
+                        <strong>Email:</strong> <a href="mailto:${user.email}" style="color: #67b7ff; text-decoration: none;">${user.email}</a>
+                    `;
+                } else {
+                    // Display error message if data fetch fails
+                    document.getElementById("demo").innerHTML = "Error loading user data";
+                }
+            }
+        };
+
+        // Send the request
+        xhttp.send();
+    </script>
+</body>
+</html>

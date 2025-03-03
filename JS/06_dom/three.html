@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning DOM</title>
+    <style>
+        .bg-black {
+            background-color: #212122;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <ul class="lang">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    // Function to add a new language to the list
+    function addLanguage(lang_name) {
+        const li = document.createElement('li');
+        li.innerHTML = `${lang_name}`;
+        document.querySelector('.lang').append(li);
+    }
+    
+    addLanguage('Python');
+
+    // Improved function to add language using text node
+    function addLangGood(lang_name) {
+        const li = document.createElement('li');
+        li.append(lang_name);
+        document.querySelector('.lang').append(li);
+    }
+    
+    addLangGood("TypeScript");
+    addLangGood("GoLang");
+
+    // Edit the second language in the list
+    const secondLang = document.querySelector('li:nth-child(2)');
+    secondLang.outerHTML = '<li>Mojo</li>';
+
+    // Remove the last language from the list
+    document.querySelector('li:last-child').remove();
+</script>
+</html>

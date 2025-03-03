@@ -1,0 +1,38 @@
+body{
+    font-family: 'Arial', sans-serif;
+    padding: 0%;
+    margin: 0%;
+    color: #fafafa;
+}
+.main {
+    width: 900px;
+    align-content: center;
+    padding: 10px;
+}
+.intro-box h1{
+    color: #084c61;
+}
+.guarantee {
+    color: #84c318;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.desciption{
+    color: #8e8787;
+}
+.detail-box {
+    display: flex;
+}
+.subsciption-box, .why-us-box {
+    background-color: 04b2c2;
+    padding: 20px;
+}
+.subsciption-box{
+    background-color: #04b2c2ae;
+    align-content: center;
+}
+ul.no-bullets {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

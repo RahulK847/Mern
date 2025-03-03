@@ -1,0 +1,88 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Gradient background */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Container */
+  .container {
+    background: rgba(255, 255, 255, 0.1); /* Transparent white */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  /* Heading */
+  h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  
+  /* Form Styles */
+  form p {
+    margin: 10px 0;
+  }
+  
+  label {
+    font-size: 18px;
+  }
+  
+  input {
+    width: 80%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  /* Button Styling */
+  button {
+    background: #ffcc00;
+    color: black;
+    font-size: 18px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background: #e6b800;
+  }
+  
+  /* Results */
+  #results {
+    font-size: 20px;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+  }
+  
+  /* BMI Guide */
+  #weight-guide {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+  
+  h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  

@@ -1,0 +1,50 @@
+* {
+
+    
+}
+.main {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    display: flex;
+    margin: auto;
+    width: 60vw;
+    margin: auto;
+    margin: 10vw;
+    height: 50%;
+
+}
+.sedans {
+    background-color: hsl(31, 77%, 52%);
+    padding: 1rem;
+
+}
+.suvs {
+    background-color: hsl(184, 100%, 22%);
+    padding: 1rem;
+
+}
+.luxury {
+    background-color: hsl(179, 100%, 13%);
+    padding: 1rem;
+}
+.learn-btn {
+    background-color:hsl(179, 100%, 13%);
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 10px 20px; 
+    font-size: 16px; 
+    text-align: center;
+    cursor: pointer;
+    
+}
+.sedans .learn-btn{
+    background-color: hsl(31, 77%, 52%);
+}
+.suvs .learn-btn{
+    background-color: hsl(184, 100%, 22%);
+}
+.learn-btn:hover {
+    background-color: #FFf;
+    color: black;
+  }

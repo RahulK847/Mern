@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Learning</title>
+    <style>
+        /* Define a black background with white text */
+        .bg-black{
+            background-color: #212122;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div class="parent">
+        <!-- Days of the week inside a parent container -->
+        <div class="day">Mondey</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    // Select the parent element
+    const parent  = document.querySelector(".parent");
+    const children = parent.children; // Get all child elements inside parent
+    
+    // Console logs to explore child elements
+    // console.log(parent.children); // Logs all child elements
+    // console.log(parent.children[2].innerHTML); // Logs the third child (Wednesday)
+    
+    // Loop through all child elements and log their inner content
+    // for (let index = 0; index < parent.children.length; index++) {
+    //     console.log(parent.children[index].innerHTML);
+    // }
+    
+    // Change the color of the second child (Tuesday) to orange
+    // children[1].style.color = 'orange';
+    
+    // Get the first and last child elements of the parent
+    // console.log(parent.firstElementChild.innerHTML); // Logs first child (Monday)
+    // console.log(parent.lastElementChild.innerHTML); // Logs last child (Thursday)
+    
+    // Select the first element with class "day"
+    const dayOne = document.querySelector('.day');
+    
+    // Console logs to explore relationships
+    // console.log(dayOne); // Logs the first "day" element (Monday)
+    // console.log(dayOne.parentElement); // Logs parent div of "day"
+    // console.log(dayOne.nextElementSibling); // Logs next sibling (Tuesday)
+    
+    // Logs all child nodes of the parent (includes text nodes)
+    console.log("NODE: ", parent.childNodes);
+</script>
+</html>
