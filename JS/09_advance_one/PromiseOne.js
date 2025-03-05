@@ -22,7 +22,7 @@ new Promise((yes, no) => {
 const promiseThree = new Promise((yo, no) => {
     setTimeout(() => {
         yo({ username: "coffeeLover", email: "JOB@givemejob.com" });
-    }, 1000);
+    }, 10000);
 });
 
 promiseThree.then((user) => console.log(user));
@@ -78,3 +78,18 @@ async function consumePromiseFive() {
 }
 
 consumePromiseFive();
+
+
+
+//getAllUsers()
+
+fetch("https://randomuser.me/api/") // ✅ Correct API URL
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(`HTTP Error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then((data) => console.log(data))
+    .catch((error) => console.log("❌ Fetch Error:", error));
+
